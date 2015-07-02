@@ -2,7 +2,7 @@ package jp.co.trattoria.capter1_3;
 
 import org.junit.Test;
 
-public class HogeTest {
+public class FileNameFilterTest {
 
 	@Test
 	public void testGetSubDirectory() {

@@ -12,7 +12,6 @@ public class FileSortTest {
 
 		File[] fileList = new File("/").listFiles();
 
-
 		File[] sortedFiles = new FileSort().getFileListSort(fileList);
 
 		for(File f: sortedFiles){

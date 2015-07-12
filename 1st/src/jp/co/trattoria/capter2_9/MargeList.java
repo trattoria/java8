@@ -6,6 +6,8 @@ import java.util.List;
 /**
  * Q：Stream<ArrayList<T>>内の全ての要素を、1つのArrayList<T>へまとめる
  * 3つの形式のreduceを用いる方法を提示する
+ *
+ * @see http://d.hatena.ne.jp/nowokay/20130504
  */
 public class MargeList {
 

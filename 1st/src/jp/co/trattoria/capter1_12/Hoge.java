@@ -28,12 +28,12 @@ public class Hoge extends AbstractList<Integer>{
 	 * シグニチャが違うので、compileエラーとなる
 	 */
     public void stream() {
-        System.out.println("Called FooList#stream()");
+        System.out.println("hogehoge");
     }
 
-//  public Stream<Integer> stream() {
-//  System.out.println("Called FooList#stream()");
-//	return null;
-//}
+//	  public Stream<Integer> stream() {
+//		System.out.println("hogehoge");
+//		return null;
+//	}
 
 }

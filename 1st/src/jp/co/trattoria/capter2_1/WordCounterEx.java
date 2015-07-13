@@ -6,7 +6,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class WordCounterEx implements Runnable{
@@ -14,7 +13,6 @@ public class WordCounterEx implements Runnable{
 	static final AtomicInteger totalCount = new AtomicInteger(0);
 	static 	List<String> words = null;
 
-    public AtomicBoolean isFinish = new AtomicBoolean(false);
 	private static int threshold = -1;
 	private static int threadCount = -1;
 	private int id;
@@ -38,7 +36,7 @@ public class WordCounterEx implements Runnable{
 
 		WordCounterEx.threadCount = threadCount;
 
-		for(int i = 0; i<WordCounterEx.threadCount; i++){
+		for(int i = 0; i<WordCounterEx.threadCount+1; i++){
 			WordCounterEx counter = new WordCounterEx(i);
 			counter.run();
 		}
@@ -56,8 +54,8 @@ public class WordCounterEx implements Runnable{
 	@Override
 	public void run() {
 
-		int from = WordCounterEx.threadCount * this.id;
-		int to = Math.min(WordCounterEx.threadCount * (this.id+1), WordCounterEx.words.size());
+		int from = (WordCounterEx.words.size() / WordCounterEx.threadCount) * this.id;
+		int to = Math.min((WordCounterEx.words.size() / WordCounterEx.threadCount) * (this.id+1), WordCounterEx.words.size());
 
 		int count = 0;
 		for (int i = from; i < to; i++) {
@@ -66,18 +64,16 @@ public class WordCounterEx implements Runnable{
 			}
 		}
 		totalCount.addAndGet(count);
-
-		isFinish.set(true);
 	}
 
 	public static void main(String[] args) throws IOException {
 
-		String contents = new String(Files.readAllBytes(Paths.get("src\\jp\\co\\trattoria\\capter2_1\\sample.txt")), StandardCharsets.UTF_8);
+		String contents = new String(Files.readAllBytes(Paths.get("src\\jp\\co\\trattoria\\capter2_1\\rfc793_1.txt")), StandardCharsets.UTF_8);
 		List<String> words = Arrays.asList(contents.split("[\\P{L}]+"));
 
 		WordCounterEx.setPreSetting(words, 8);
-		WordCounterEx.startCount(100);
-		System.out.println("counter:" + WordCounterEx.totalCount);
+		WordCounterEx.startCount(100);	// 同時に生成するスレッド上限を指定する
+		System.out.println("counter:" + WordCounterEx.totalCount.get());
 	}
 
 }

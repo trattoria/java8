@@ -20,7 +20,7 @@ public class WordCounterExTest {
 	public void 正常ケース() {
 		String contents;
 		try {
-			contents = new String(Files.readAllBytes(Paths.get("src\\jp\\co\\trattoria\\capter2_1\\sample.txt")), StandardCharsets.UTF_8);
+			contents = new String(Files.readAllBytes(Paths.get("src\\jp\\co\\trattoria\\capter2_1\\rfc793_1.txt")), StandardCharsets.UTF_8);
 			List<String> words = Arrays.asList(contents.split("[\\P{L}]+"));
 
 			WordCounterEx.setPreSetting(words, 8);

@@ -8,16 +8,18 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- *
+ * 測定手段以上に、別のボトルネックがありそう・・・。
  *
  * 以下の条件において、測定を実施。
- * 文字数：3945
- * 単語数：625語
- *
- * 結果
- * 所要時間 : 60msec : count=101
- * 所要時間 : 5msec : count=101
- *
+ * 文字数：167463
+ * 単語数：21894語
+ * 結果:評価対象のテキストが短すぎて誤差にしかならない・・・
+ * 所要時間 : 77msec : count=2615	最初の実行のため、オーバーヘッドが大きい
+ * 所要時間 : 6msec : count=2615
+ * 所要時間 : 2msec : count=2615
+ * 所要時間 : 0msec : count=2615
+ * 所要時間 : 0msec : count=2615
+ * 所要時間 : 0msec : count=2615
  */
 public class WordCounter {
 
@@ -39,26 +41,47 @@ public class WordCounter {
 
 	public static void main(String[] args) {
 		String contents;
+		List<String> words;
 		try {
-			contents = new String(Files.readAllBytes(Paths.get("src\\jp\\co\\trattoria\\capter2_1\\sample.txt")), StandardCharsets.UTF_8);
-			List<String> words = Arrays.asList(contents.split("[\\P{L}]+"));
 
 			long start = 0;
 			long end = 0;
 			long count = 0;
+			long result = 0;
+			WordCounter counter;
 
-			WordCounter counter = new WordCounter(8);
-			start = System.nanoTime();
-			count = counter.counter(words);
-			end = System.nanoTime();
-			System.out.println("所要時間 : " + (end - start) / (1000 * 1000) + "msec : count=" + count);
+			System.out.println("start");
+
+			contents = new String(Files.readAllBytes(Paths.get("src\\jp\\co\\trattoria\\capter2_1\\rfc793_2.txt")), StandardCharsets.UTF_8);
+			words = Arrays.asList(contents.split("[\\P{L}]+"));
 
 			counter = new WordCounter(8);
 			start = System.nanoTime();
 			count = counter.parallelCounter(words);
 			end = System.nanoTime();
-			System.out.println("所要時間 : " + (end - start) / (1000 * 1000) + "msec : count=" + count);
+			result = (end - start)/ (1000 * 1000);
+			System.out.println("所要時間 : " + result + "msec : count=" + count);
 
+
+			contents = new String(Files.readAllBytes(Paths.get("src\\jp\\co\\trattoria\\capter2_1\\rfc793_1.txt")), StandardCharsets.UTF_8);
+			words = Arrays.asList(contents.split("[\\P{L}]+"));
+
+			counter = new WordCounter(8);
+			start = System.nanoTime();
+			count = counter.counter(words);
+			end = System.nanoTime();
+			result = (end - start)/ (1000 * 1000);
+			System.out.println("所要時間 : " + result  + "msec : count=" + count);
+
+			contents = new String(Files.readAllBytes(Paths.get("src\\jp\\co\\trattoria\\capter2_1\\rfc793_2.txt")), StandardCharsets.UTF_8);
+			words = Arrays.asList(contents.split("[\\P{L}]+"));
+
+			counter = new WordCounter(8);
+			start = System.nanoTime();
+			count = counter.parallelCounter(words);
+			end = System.nanoTime();
+			result = (end - start)/ (1000 * 1000);
+			System.out.println("所要時間 : " + result + "msec : count=" + count);
 
 
 		} catch (IOException e) {

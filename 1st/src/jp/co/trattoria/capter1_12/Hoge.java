@@ -14,13 +14,13 @@ public class Hoge extends AbstractList<Integer>{
 
 	@Override
 	public Integer get(int index) {
-		// TODO 自動生成されたメソッド・スタブ
+
 		return null;
 	}
 
 	@Override
 	public int size() {
-		// TODO 自動生成されたメソッド・スタブ
+
 		return 0;
 	}
 

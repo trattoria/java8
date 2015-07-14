@@ -47,42 +47,60 @@ public class WordCounter {
 			long start = 0;
 			long end = 0;
 			long count = 0;
-			long result = 0;
 			WordCounter counter;
 
+			// プログラムの実行でキャッシュされるものはしておく。
 			System.out.println("start");
-
-			contents = new String(Files.readAllBytes(Paths.get("src\\jp\\co\\trattoria\\capter2_1\\rfc793_2.txt")), StandardCharsets.UTF_8);
+			System.nanoTime();
+			contents = new String(Files.readAllBytes(Paths.get("src\\jp\\co\\trattoria\\capter2_1\\war-and-peace.txt")), StandardCharsets.UTF_8);
+//			contents = new String(Files.readAllBytes(Paths.get("src\\jp\\co\\trattoria\\capter2_1\\alice.txt")), StandardCharsets.UTF_8);
 			words = Arrays.asList(contents.split("[\\P{L}]+"));
 
-			counter = new WordCounter(8);
-			start = System.nanoTime();
-			count = counter.parallelCounter(words);
-			end = System.nanoTime();
-			result = (end - start)/ (1000 * 1000);
-			System.out.println("所要時間 : " + result + "msec : count=" + count);
+//			for(String s : words){
+//				System.out.println(s);
+//			}
 
+			int threshold = 12;
+			for(int i = 0 ; i< 10 ; i++){
+				start = System.nanoTime();
+				count = words.stream().filter(w -> w.length() > threshold).count();
+				end = System.nanoTime();
+				System.out.println("所要時間 : " + (end - start) + "msec : count=" + count);
 
-			contents = new String(Files.readAllBytes(Paths.get("src\\jp\\co\\trattoria\\capter2_1\\rfc793_1.txt")), StandardCharsets.UTF_8);
+				start = System.nanoTime();
+				count = words.parallelStream().filter(w -> w.length() > threshold).count();
+				end = System.nanoTime();
+				System.out.println("所要時間 : " + (end - start) + "msec : count=" + count);
+			}
+
+			contents = new String(Files.readAllBytes(Paths.get("src\\jp\\co\\trattoria\\capter2_1\\alice.txt")), StandardCharsets.UTF_8);
 			words = Arrays.asList(contents.split("[\\P{L}]+"));
 
-			counter = new WordCounter(8);
-			start = System.nanoTime();
-			count = counter.counter(words);
-			end = System.nanoTime();
-			result = (end - start)/ (1000 * 1000);
-			System.out.println("所要時間 : " + result  + "msec : count=" + count);
+			for(int i = 0 ; i< 10 ; i++){
+				start = System.nanoTime();
+				count = words.stream().filter(w -> w.length() > threshold).count();
+				end = System.nanoTime();
+				System.out.println("所要時間 : " + (end - start) + "msec : count=" + count);
 
-			contents = new String(Files.readAllBytes(Paths.get("src\\jp\\co\\trattoria\\capter2_1\\rfc793_2.txt")), StandardCharsets.UTF_8);
-			words = Arrays.asList(contents.split("[\\P{L}]+"));
+				start = System.nanoTime();
+				count = words.parallelStream().filter(w -> w.length() > threshold).count();
+				end = System.nanoTime();
+				System.out.println("所要時間 : " + (end - start) + "msec : count=" + count);
+			}
 
-			counter = new WordCounter(8);
-			start = System.nanoTime();
-			count = counter.parallelCounter(words);
-			end = System.nanoTime();
-			result = (end - start)/ (1000 * 1000);
-			System.out.println("所要時間 : " + result + "msec : count=" + count);
-
+//			counter = new WordCounter(8);
+//			start = System.nanoTime();
+//			count = counter.counter(words);
+//			end = System.nanoTime();
+//			result = (end - start)/ (1000 * 1000);
+//			System.out.println("所要時間 : " + result  + "msec : count=" + count);
+//
+//			counter = new WordCounter(8);
+//			start = System.nanoTime();
+//			count = counter.parallelCounter(words);
+//			end = System.nanoTime();
+//			result = (end - start)/ (1000 * 1000);
+//			System.out.println("所要時間 : " + result + "msec : count=" + count);
 
 		} catch (IOException e) {
 			System.out.println("ファイルが開けません。");

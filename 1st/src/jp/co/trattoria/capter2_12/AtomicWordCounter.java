@@ -13,6 +13,7 @@ public class AtomicWordCounter {
 
 	AtomicWordCounter(int val){
 		this.threshold = val;
+
 	}
 
 	long parallelCounter(List<String> words){
@@ -34,10 +35,10 @@ public class AtomicWordCounter {
 			start = System.nanoTime();
 			count = counter.parallelCounter(words);
 			end = System.nanoTime();
-			System.out.println("所要時間 : " + (end - start) / (1000 * 1000) + "msec : count=" + count);
+			System.out.println("所要時�: " + (end - start) / (1000 * 1000) + "msec : count=" + count);
 
 		} catch (IOException e) {
-			System.out.println("ファイルが開けません。");
+			System.out.println("ファイルが開けません�);
 		}
 	}
 }

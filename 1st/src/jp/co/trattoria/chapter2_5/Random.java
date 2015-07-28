@@ -1,4 +1,4 @@
-package jp.co.trattoria.capter2_5;
+package jp.co.trattoria.chapter2_5;
 
 import java.util.stream.LongStream;
 

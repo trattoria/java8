@@ -1,4 +1,4 @@
-package jp.co.trattoria.capter2_8;
+package jp.co.trattoria.chapter2_8;
 
 import java.util.Iterator;
 import java.util.Spliterator;

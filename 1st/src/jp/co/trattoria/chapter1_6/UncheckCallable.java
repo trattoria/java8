@@ -1,4 +1,4 @@
-package jp.co.trattoria.capter1_6;
+package jp.co.trattoria.chapter1_6;
 
 import java.util.concurrent.Callable;
 

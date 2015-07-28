@@ -1,4 +1,4 @@
-package jp.co.trattoria.capter1_1;
+package jp.co.trattoria.chapter1_1;
 
 import java.util.Arrays;
 import java.util.Random;

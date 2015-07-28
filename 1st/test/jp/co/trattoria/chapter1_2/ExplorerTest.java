@@ -1,8 +1,10 @@
-package jp.co.trattoria.capter1_2;
+package jp.co.trattoria.chapter1_2;
 
 import java.io.File;
 
 import org.junit.Test;
+
+import jp.co.trattoria.chapter1_2.Explorer;
 
 public class ExplorerTest {
 

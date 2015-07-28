@@ -1,4 +1,4 @@
-package jp.co.trattoria.capter2_11;
+package jp.co.trattoria.chapter2_11;
 
 public class Hoge {
 

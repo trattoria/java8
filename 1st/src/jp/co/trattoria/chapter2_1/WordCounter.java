@@ -1,4 +1,4 @@
-package jp.co.trattoria.capter2_1;
+package jp.co.trattoria.chapter2_1;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

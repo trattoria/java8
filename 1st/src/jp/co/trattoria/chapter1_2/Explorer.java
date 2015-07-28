@@ -1,4 +1,4 @@
-package jp.co.trattoria.capter1_2;
+package jp.co.trattoria.chapter1_2;
 
 import java.io.File;
 

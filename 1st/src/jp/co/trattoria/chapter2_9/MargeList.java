@@ -1,4 +1,4 @@
-package jp.co.trattoria.capter2_9;
+package jp.co.trattoria.chapter2_9;
 
 import java.util.ArrayList;
 import java.util.List;

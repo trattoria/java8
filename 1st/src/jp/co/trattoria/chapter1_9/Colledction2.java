@@ -1,4 +1,4 @@
-package jp.co.trattoria.capter1_9;
+package jp.co.trattoria.chapter1_9;
 
 import java.util.Collection;
 import java.util.function.Consumer;

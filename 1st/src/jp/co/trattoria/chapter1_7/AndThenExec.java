@@ -1,4 +1,4 @@
-package jp.co.trattoria.capter1_7;
+package jp.co.trattoria.chapter1_7;
 
 public class AndThenExec {
 

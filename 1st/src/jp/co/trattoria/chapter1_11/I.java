@@ -1,4 +1,4 @@
-package jp.co.trattoria.capter1_11;
+package jp.co.trattoria.chapter1_11;
 
 public interface I {
 

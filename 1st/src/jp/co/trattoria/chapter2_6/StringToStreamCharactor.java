@@ -1,4 +1,4 @@
-package jp.co.trattoria.capter2_6;
+package jp.co.trattoria.chapter2_6;
 
 import java.util.stream.IntStream;
 import java.util.stream.Stream;

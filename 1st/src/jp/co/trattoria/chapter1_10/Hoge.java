@@ -1,4 +1,4 @@
-package jp.co.trattoria.capter1_10;
+package jp.co.trattoria.chapter1_10;
 
 /**
  * Q：どのインタフェースにCollectionsクラスの各メソッドを入れますか。

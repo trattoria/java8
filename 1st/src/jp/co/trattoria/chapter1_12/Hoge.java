@@ -1,4 +1,4 @@
-package jp.co.trattoria.capter1_12;
+package jp.co.trattoria.chapter1_12;
 
 import java.util.AbstractList;
 

@@ -1,6 +1,8 @@
-package jp.co.trattoria.capter1_6;
+package jp.co.trattoria.chapter1_6;
 
 import org.junit.Test;
+
+import jp.co.trattoria.chapter1_6.UncheckCallable;
 
 public class UncheckCallableTest {
 

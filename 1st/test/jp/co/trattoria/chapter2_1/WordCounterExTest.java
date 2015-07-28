@@ -1,4 +1,4 @@
-package jp.co.trattoria.capter2_1;
+package jp.co.trattoria.chapter2_1;
 
 import static org.junit.Assert.*;
 
@@ -10,6 +10,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
+
+import jp.co.trattoria.chapter2_1.WordCounter;
+import jp.co.trattoria.chapter2_1.WordCounterEx;
 
 public class WordCounterExTest {
 

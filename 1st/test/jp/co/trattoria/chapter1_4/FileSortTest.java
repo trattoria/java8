@@ -1,8 +1,10 @@
-package jp.co.trattoria.capter1_4;
+package jp.co.trattoria.chapter1_4;
 
 import java.io.File;
 
 import org.junit.Test;
+
+import jp.co.trattoria.chapter1_4.FileSort;
 
 public class FileSortTest {
 

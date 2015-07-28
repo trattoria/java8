@@ -1,6 +1,8 @@
-package jp.co.trattoria.capter1_3;
+package jp.co.trattoria.chapter1_3;
 
 import org.junit.Test;
+
+import jp.co.trattoria.chapter1_3.FileNameFilter;
 
 public class FileNameFilterTest {
 

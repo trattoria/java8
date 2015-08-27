@@ -1,5 +1,7 @@
 package jp.co.trattoria.chapter4_02;
 
+import java.util.Objects;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -12,7 +14,7 @@ import javafx.beans.property.StringProperty;
 public class Greeting {
 
 	// private StringProperty text = new SimpleStringProperty("");
-	private String text = null;
+	private String text = "";
 	private StringProperty property = null;
 
 	public final StringProperty textProperty() {
@@ -23,7 +25,18 @@ public class Greeting {
 		return property;
 	}
 
+	/**
+	 * プロパティのバリューをセットする。
+	 *
+	 * @param newValue
+	 *            文字列
+	 *
+	 * @throws NullPointerException
+	 *             引数がnullの場合
+	 */
 	public final void setText(String newValue) {
+		Objects.requireNonNull(newValue);
+
 		if (property != null) {
 			property.set(newValue);
 		} else {

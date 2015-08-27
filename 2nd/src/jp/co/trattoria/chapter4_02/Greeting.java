@@ -17,7 +17,7 @@ public class Greeting {
 	private String text = "";
 	private StringProperty property = null;
 
-	public final StringProperty textProperty() {
+	synchronized public final StringProperty textProperty() {
 		if (property == null) {
 			property = new SimpleStringProperty(text);
 		}
@@ -34,7 +34,7 @@ public class Greeting {
 	 * @throws NullPointerException
 	 *             引数がnullの場合
 	 */
-	public final void setText(String newValue) {
+	synchronized public final void setText(String newValue) {
 		Objects.requireNonNull(newValue);
 
 		if (property != null) {
@@ -45,11 +45,11 @@ public class Greeting {
 
 	}
 
-	public final String getText() {
+	synchronized public final String getText() {
 		return property != null ? property.get() : text;
 	}
 
-	public static void main(String[] args) {
+	synchronized public static void main(String[] args) {
 		Greeting obj = new Greeting();
 
 		obj.setText("hogehoge");
